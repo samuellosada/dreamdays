@@ -20,7 +20,7 @@
 </script>
 
 <header class="p-6 flex justify-between items-start">
-    <div class="text-3xl font-bold">
+    <div class="text-3xl font-bold self-end">
         {currentDate}
     </div>
     <div class="text-right">

@@ -2,6 +2,6 @@
     const currentYear = new Date().getFullYear();
 </script>
 
-<footer class="p-4 bg-gray-900 text-center mt-auto">
-    <p class="text-gray-400">© {currentYear} BlooPanda Studio</p>
+<footer class="p-4 bg-black-900 text-center mt-auto">
+    <p class="text-white-400">© {currentYear} <span class="font-serif">BlooPanda</span> Studio</p>
 </footer>
