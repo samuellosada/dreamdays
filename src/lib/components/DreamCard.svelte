@@ -18,7 +18,7 @@
     class="p-6 rounded-lg shadow-lg transition-colors"
     style="background-color: {isMarkedToday ? dream.color : '#374151'}"
 >
-    <h3 class="text-xl font-semibold mb-4">{dream.description}</h3>
+    <h3 class="text-4xl font-semibold mb-4">{dream.description}</h3>
     <div class="flex justify-between items-center">
         <div>
             <span class="text-sm opacity-80">Current Streak:</span>

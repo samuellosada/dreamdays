@@ -8,10 +8,6 @@ export const getYearProgress = () => {
 };
 
 export const getRandomQuote = () => {
-	const quotes = [
-		"Dreams don't work unless you do.",
-		'The future belongs to those who believe in the beauty of their dreams.',
-		'Every great dream begins with a dreamer.'
-	];
+	const quotes = ["Dreams don't work unless you do.", 'Every great dream begins with a dreamer.'];
 	return quotes[Math.floor(Math.random() * quotes.length)];
 };
