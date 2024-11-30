@@ -11,16 +11,16 @@
         )
     ).size;
 
-    $: currentDate = new Date().toLocaleDateString('en-US', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-    });
+    $: currentDate = new Date().toLocaleDateString('en-GB', {
+        
+        year: '2-digit',
+        month: '2-digit',
+        day: '2-digit'
+    }).replace(/\//g, ' ');;
 </script>
 
 <header class="p-6 flex justify-between items-start">
-    <div class="text-3xl font-bold self-end">
+    <div class="text-5xl font-light self-end">
         {currentDate}
     </div>
     <div class="text-right">
