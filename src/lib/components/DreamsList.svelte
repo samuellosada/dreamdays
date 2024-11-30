@@ -1,6 +1,5 @@
 <script>
     import { dreams } from '$lib/stores';
-	import AddDreamCard from './NewDreamCard.svelte';
     import DreamCard from './DreamCard.svelte';
 	import NewDreamCard from './NewDreamCard.svelte';
     
@@ -35,5 +34,5 @@
         />
     {/each}
 
-    <NewDreamCardDreamCard />
+    <NewDreamCard />
 </div>
