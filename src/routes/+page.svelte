@@ -1,2 +1,19 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script>
+    import DreamsList from '$lib/components/DreamsList.svelte';
+    
+    let showAddDream = false;
+</script>
+
+<div class="p-4">
+  
+    
+    {#if showAddDream}
+        <div class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center">
+            <div class="bg-gray-900 rounded-lg max-w-md w-full">
+                <AddDreamForm on:close={() => showAddDream = false} />
+            </div>
+        </div>
+    {/if}
+    
+    <DreamsList />
+</div>
