@@ -1,7 +1,8 @@
 <script>
     import { dreams } from '$lib/stores';
-	import AddDreamCard from './AddDreamCard.svelte';
+	import AddDreamCard from './NewDreamCard.svelte';
     import DreamCard from './DreamCard.svelte';
+	import NewDreamCard from './NewDreamCard.svelte';
     
     
     function handleUpdateStreak(event) {
@@ -24,8 +25,6 @@
 </script>
 
 <div class="grid gap-4 p-4">
-    
-
     <!-- Iterates to render dreamcards -->
     {#each $dreams as dream (dream.id)}
         <DreamCard
@@ -36,8 +35,5 @@
         />
     {/each}
 
-    <AddDreamCard />
-    <!-- ADDITIONAL CARDS: -->
-    <!-- Add Dream Card -->
-    
+    <NewDreamCardDreamCard />
 </div>

@@ -22,7 +22,7 @@ function handleSubmit() {
 </script>
 
 <div class="p-6 rounded-lg shadow-lg bg-gray-900">
-    <h3 class="text-xl font-semibold mb-4">Add New Dream</h3>
+    <h3 class="text-xl font-semibold mb-4">New Dream</h3>
     <form on:submit|preventDefault={handleSubmit} class="space-y-4">
         <div>
             <label for="description" class="block text-sm font-medium mb-2">
