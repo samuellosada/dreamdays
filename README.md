@@ -10,7 +10,7 @@ The application built to encourage you to look at the big picture and work towar
 
 - Create dreams to keep track of and track your streak of daily work towards them.
 
-# WIP:
+### WIP:
 
 - get recommendations of based on proven motivation research
 - receive notifications to remind you of working towards the bigger picture daily.
