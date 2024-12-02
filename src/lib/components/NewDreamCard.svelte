@@ -11,7 +11,6 @@ function handleSubmit() {
             color,
             streakCount: 0,
             lastUpdated: '',
-            dailyProgress: []
         };
         
         dreams.update(currentDreams => [...currentDreams, newDream]);
