@@ -14,30 +14,50 @@
     }
 </script>
 
-<div 
-    class="p-6 rounded-lg shadow-lg transition-colors"
-    style="background-color: {isMarkedToday ? dream.color : '#374151'}"
->
-    <h3 class="text-4xl font-semibold mb-4">{dream.description}</h3>
+<!-- Card should fill container on the vertical y plane. -->
+<div
+    class="text-slate-950 
+    p-6 h-full xl:h-[80%] min-w-[85%] md:min-w-[60%] xl:min-w-[45%] mr-6 rounded-lg shadow-lg transition-colors 
+    snap-center
+     { isMarkedToday ? dream.color : 'bg-slate-50'}">
+    <h3 class="text-4xl min-h-[90%] xl:min-h-[88%] font-semibold leading-10 mb-4">{dream.description}</h3>
     <div class="flex justify-between items-center">
-        <div>
-            <span class="text-sm opacity-80">Current Streak:</span>
-            <span class="ml-2 font-bold">{dream.streakCount} days</span>
-        </div>
         <div class="flex gap-2">
             <button
                 on:click={() => dispatch('edit', { dreamId: dream.id })}
-                class="px-3 py-1 bg-black bg-opacity-30 rounded hover:bg-opacity-40 transition-colors"
+                class="mx-2 bg-opacity-30 rounded hover:bg-opacity-40 transition-colors"
             >
-                Edit
+            <span class="material-symbols-outlined">edit</span>
             </button>
-            <button
-                on:click={updateStreak}
-                class="px-3 py-1 bg-black bg-opacity-30 rounded hover:bg-opacity-40 transition-colors"
-                disabled={isMarkedToday}
-            >
-                {isMarkedToday ? 'Marked' : 'Mark Progress'}
-            </button>
+        </div>
+        <div>
+            <span class="text-4xl leading-none mx-2 font-light">{dream.streakCount}</span>
         </div>
     </div>
 </div>
+
+<style>
+.material-symbols-outlined:hover {
+    font-variation-settings: 'wght' 900;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+@media screen and (min-width: 601px) {
+    .material-symbols-outlined {
+    font-size: 36px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+    .material-symbols-outlined {
+    font-size: 24px;
+  }
+}
+</style>

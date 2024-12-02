@@ -4,7 +4,9 @@
 	import NewDreamCard from './NewDreamCard.svelte';
     
     
+    
     function handleUpdateStreak(event) {
+        console.log(event)
         const dreamId = event.detail.dreamId;
         dreams.update(currentDreams => 
             currentDreams.map(dream => {
@@ -23,14 +25,13 @@
     }
 </script>
 
-<div class="grid gap-4 p-4">
+<div class="flex overflow-x-auto scroll-smooth overscroll-x-none h-full p-4">
     <!-- Iterates to render dreamcards -->
     {#each $dreams as dream (dream.id)}
         <DreamCard
             {dream}
             on:updateStreak={handleUpdateStreak}
-            on:edit
-            on:changeColor
+            on:edit={console.log('editing')}
         />
     {/each}
 

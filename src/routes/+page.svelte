@@ -4,6 +4,6 @@
     let showAddDream = false;
 </script>
 
-<div class="p-4">
+<div class="h-full">
     <DreamsList />
 </div>
