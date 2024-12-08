@@ -1,6 +1,7 @@
 <script>
     import { createEventDispatcher } from 'svelte';
-    
+    import { dreams } from '$lib/stores';
+
     export let dream;
     const dispatch = createEventDispatcher();
     
@@ -12,9 +13,32 @@
             dispatch('updateStreak', { dreamId: dream.id });
         }
     }
+
+    function UpdateCompletion(){
+        if(!isMarkedToday){
+            console.log(dream.id, dreams.id);
+        //     dreams.update(currentDreams => 
+        //     currentDreams.map(dream => {
+        //         if (dream.id === dreamId) {
+        //             const today = new Date().toISOString().split('T')[0];
+        //             return {
+        //                 ...dream,
+        //                 streakCount: dream.streakCount + 1,
+        //                 lastUpdated: today,
+        //                 dailyProgress: [...dream.dailyProgress, { date: today, completed: true }]
+        //             };  
+        //         }
+        //         return dream;
+        //     })
+        // );
+        }
+    }
 </script>
 
-<!-- Card should fill container on the vertical y plane. -->
+<!-- TO DO -->
+ <!-- Add marking complete feature - streak goes up and colour changes -->
+  <!-- Add card editing - can then delete card, edit description or change color -->
+
 <div
     class="text-slate-950 
     p-6 h-full xl:h-[80%] min-w-[85%] md:min-w-[60%] xl:min-w-[45%] mr-6 rounded-lg shadow-lg transition-colors 
@@ -31,7 +55,11 @@
             </button>
         </div>
         <div>
-            <span class="text-4xl leading-none mx-2 font-light">{dream.streakCount}</span>
+            <button type="button"
+            on:click={UpdateCompletion}
+            class="text-4xl leading-none mx-2 font-light">
+            {dream.streakCount}
+            </button>
         </div>
     </div>
 </div>

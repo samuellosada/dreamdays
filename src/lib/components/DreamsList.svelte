@@ -6,7 +6,6 @@
     
     
     function handleUpdateStreak(event) {
-        console.log(event)
         const dreamId = event.detail.dreamId;
         dreams.update(currentDreams => 
             currentDreams.map(dream => {
