@@ -5,9 +5,7 @@
     $: totalStreaks = $dreams.reduce((acc, dream) => acc + dream.streakCount, 0);
     $: totalDaysWithStreaks = new Set(
         $dreams.flatMap(dream => 
-            dream.dailyProgress
-                .filter(progress => progress.completed)
-                .map(progress => progress.date)
+            dream.streakCount
         )
     ).size;
 
