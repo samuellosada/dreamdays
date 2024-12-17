@@ -6,11 +6,14 @@
     const today = new Date().toISOString().split('T')[0];
     $: isMarkedToday = dream.lastUpdated === today;
     
+    //This changes the colour of the card when marked for the day.
+    $: cardColour = isMarkedToday ? dream.color : 'bg-slate-50 text-slate-950';
+
     function updateDream() {
         if (!isMarkedToday) {
             dreams.update(currentDreams => 
                 currentDreams.map(currentDream => {
-                    console.log(currentDream);
+                    console.log(currentDream.color);
                     if (currentDream.id === dream.id) {
                         return {
                             ...currentDream,
@@ -23,12 +26,14 @@
             );
         }
     }  
+
 </script>
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <div
+    style:background-color={cardColour}
     class="text-slate-950 
     p-6 h-full xl:h-[80%] min-w-[85%] md:min-w-[60%] xl:min-w-[45%] mr-6 rounded-lg shadow-lg transition-colors 
-    snap-center bg-slate-50"
+    snap-center bg-slate-50 text-slate-950'"
     on:dblclick={updateDream}
 >
     <h3 class="text-4xl min-h-[90%] xl:min-h-[88%] font-semibold leading-10 mb-4">{dream.description}</h3>
