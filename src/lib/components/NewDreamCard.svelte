@@ -20,13 +20,11 @@ function handleSubmit() {
 
 </script>
 
-<div class="p-6 rounded-lg shadow-lg ">
-    <h3 class="text-xl font-semibold mb-4">New Dream</h3>
+<div class="p-6 h-full xl:h-[80%] min-w-[85%] md:min-w-[60%] xl:min-w-[45%] mr-6 rounded-lg shadow-lg">
+    <h3 class="text-4xl font-semibold mb-4">New Dream</h3>
+    <p>It’s better to have failed at something, then to have won at nothing.</p>
     <form on:submit|preventDefault={handleSubmit} class="space-y-4">
         <div>
-            <label for="description" class="block text-sm font-medium mb-2">
-                What's your dream?
-            </label>
             <textarea
                 id="description"
                 bind:value={description}
@@ -37,9 +35,6 @@ function handleSubmit() {
         </div>
         
         <div>
-            <label for="color" class="block text-sm font-medium mb-2">
-                Choose a color
-            </label>
             <input
                 type="color"
                 id="color"
