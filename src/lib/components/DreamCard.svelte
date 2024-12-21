@@ -27,6 +27,7 @@
         }
     }  
 
+//ENSURE YOU MAKE AN ALTERNATIVE FOR DOUBLE CLICK ON MOBILE AT LEAST?! LONG HOLD?
 </script>
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <div
