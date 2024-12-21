@@ -44,7 +44,7 @@ function isStepValid() {
 }
 
 </script>
-<!-- svelte-ignore a11y-no-static-element-interactions -->
+<!-- svelte-ignore a11y_consider_explicit_label -->
 <div class="p-8 h-full xl:h-[80%] min-w-[85%] md:min-w-[60%] xl:min-w-[45%] mr-6 rounded-3xl bg-white text-black">
     {#if currentStep === 0}
         <div class="space-y-4" in:fly={{ y: 50, duration: 400 }}>
@@ -143,7 +143,7 @@ function isStepValid() {
     {/if}
 </div>
 
-<style>
+<style></style>
     .material-symbols-outlined {
       font-variation-settings:
       'FILL' 0,
