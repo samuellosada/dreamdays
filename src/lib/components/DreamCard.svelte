@@ -33,7 +33,7 @@
 <div
     style:background-color={cardColour}
     class="text-slate-950 
-    p-6 h-full xl:h-[80%] min-w-[85%] md:min-w-[60%] xl:min-w-[45%] mr-6 rounded-lg shadow-lg transition-colors 
+    p-6 h-full xl:h-[80%] min-w-[85%] md:min-w-[60%] xl:min-w-[45%] mr-6 rounded-3xl shadow-lg transition-colors 
     snap-center bg-slate-50 text-slate-950'"
     on:dblclick={updateDream}
 >

@@ -143,7 +143,7 @@ function isStepValid() {
     {/if}
 </div>
 
-<style></style>
+<style>
     .material-symbols-outlined {
       font-variation-settings:
       'FILL' 0,
