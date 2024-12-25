@@ -12,7 +12,8 @@
     let dream = props.dream
 
     const today = new Date().toISOString().split('T')[0];
-    let isMarkedToday = $state(dream.lastUpdated === today);
+    let dreamLastUpdate = $state(dream.lastUpdated)
+    let isMarkedToday = $derived(dreamLastUpdate === today);
 
     let isEditing = $state(false)
 
@@ -27,6 +28,7 @@
                             lastUpdated: today,
                         };  
                     }
+                    dreamLastUpdate = today;
                     return currentDream;
                 })
             );
