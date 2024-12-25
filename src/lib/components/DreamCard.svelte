@@ -1,15 +1,21 @@
 <script>
     import { dreams } from '$lib/stores';
 
+    // WHAT TIME IS THE STREAK BEING RESET AT? 
+    // Finish the Editing mode. 
+    // submit edited changes
+    // allow user to delete a dream. 
+    // allow user to change the color of the dream.
+
     let props = $props();
     let dream = props.dream
 
     const today = new Date().toISOString().split('T')[0];
     let isMarkedToday = $derived(dream.lastUpdated === today);
+    console.log("last updated ", dream.lastUpdated, "today ", today);
 
     let isEditing = $state(false)
     
-    //This changes the colour of the card when marked for the day.
     let cardColour = $derived(isMarkedToday ? dream.color : 'bg-slate-50 text-slate-950');
 
     function updateDream() {
@@ -75,6 +81,7 @@
         snap-center bg-slate-50 text-slate-950'"
         ondblclick={updateDream}
     >  
+    <!-- FOR SOME REASON I CAN STILL SEE A BORDER WHEN THE TEXT AREA IS FOCUSED. -->
         <textarea
             bind:value={dream.description}
             class="w-full min-h-[90%] xl:min-h-[88%] p-0 text-4xl font-semibold leading-10 border-0 focus:border-transparent focus:border-0 focus:border-none focus:outline-none resize-none bg-slate-50"

@@ -7,13 +7,15 @@ let color = '#6366f1';
 
 let currentStep = 0;
 
+const today = new Date().toISOString().split('T')[0];
+
 function handleSubmit() {
     const newDream = {
         id: crypto.randomUUID(),
         description,
         color,
         streakCount: 0,
-        lastUpdated: '',
+        lastUpdated: today,
     };
     
     dreams.update(currentDreams => [...currentDreams, newDream]);
