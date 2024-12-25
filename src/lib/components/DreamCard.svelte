@@ -4,19 +4,17 @@
     // WHAT TIME IS THE STREAK BEING RESET AT? 
     // Finish the Editing mode. 
     // submit edited changes
-    // allow user to delete a dream. 
+    // 2. Colours change when streak is marked. VIP 
+    // 1. allow user to delete a dream.  <------------------WIP
     // allow user to change the color of the dream.
 
     let props = $props();
     let dream = props.dream
 
     const today = new Date().toISOString().split('T')[0];
-    let isMarkedToday = $derived(dream.lastUpdated === today);
-    console.log("last updated ", dream.lastUpdated, "today ", today);
+    let isMarkedToday = $state(dream.lastUpdated === today);
 
     let isEditing = $state(false)
-    
-    let cardColour = $derived(isMarkedToday ? dream.color : 'bg-slate-50 text-slate-950');
 
     function updateDream() {
         if (!isMarkedToday) {
@@ -48,7 +46,7 @@
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 {#if !isEditing}
     <div
-        style:background-color={cardColour}
+        style:background-color={isMarkedToday ? dream.color : 'bg-slate-50 text-slate-950'}
         class="text-slate-950 
         p-6 h-full xl:h-[80%] min-w-[85%] md:min-w-[60%] xl:min-w-[45%] mr-6 rounded-3xl shadow-lg transition-colors 
         snap-center bg-slate-50 text-slate-950'"

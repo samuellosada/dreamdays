@@ -15,7 +15,7 @@ function handleSubmit() {
         description,
         color,
         streakCount: 0,
-        lastUpdated: today,
+        lastUpdated: null,
     };
     
     dreams.update(currentDreams => [...currentDreams, newDream]);
