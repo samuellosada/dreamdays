@@ -4,7 +4,6 @@
     // WHAT TIME IS THE STREAK BEING RESET AT? 
     // Finish the Editing mode. 
     // submit edited changes
-    // 2. Colours change when streak is marked. VIP 
     // 1. allow user to delete a dream.  <------------------WIP
     // allow user to change the color of the dream.
 
@@ -33,7 +32,13 @@
                 })
             );
         }
-    }  
+    }
+
+    function handleDelete() {
+        cancelEditing;
+        console.log("deleting");
+        dreams.update(currentDreams => currentDreams.filter(currentDream => currentDream.id !== dream.id));
+    }
 
     function startEditing() {
         isEditing = true; 
@@ -96,6 +101,9 @@
             type="button"
             class="flex gap-2 font-medium hover:opacity-70 transition-opacity"
             onclick={cancelEditing}>Cancel</button>
+
+            <button type="button" class=""
+            onclick={() => {handleDelete()}}>Delete</button>
         </div>
     </div>
 {/if}
