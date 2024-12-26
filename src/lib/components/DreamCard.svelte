@@ -4,14 +4,18 @@
     // WHAT TIME IS THE STREAK BEING RESET AT? 
     // Finish the Editing mode. 
     // submit edited changes
-    // 1. allow user to delete a dream.  <------------------WIP
     // allow user to change the color of the dream.
+
+    //BUGS
+    // When editing, if text is longer, it overflows the card.
 
     let props = $props();
     let dream = props.dream
 
     const today = new Date().toISOString().split('T')[0];
     let dreamLastUpdate = $state(dream.lastUpdated)
+
+    let streak = $state(dream.streakCount);
     let isMarkedToday = $derived(dreamLastUpdate === today);
 
     let isEditing = $state(false)
@@ -36,13 +40,15 @@
             dreams.update(currentDreams => 
                 currentDreams.map(currentDream => {
                     if (currentDream.id === dream.id) {
+                        dreamLastUpdate = today;
+                        streak = currentDream.streakCount + 1;
                         return {
                             ...currentDream,
                             streakCount: currentDream.streakCount + 1,
                             lastUpdated: today,
                         };  
                     }
-                    dreamLastUpdate = today;
+                   
                     return currentDream;
                 })
             );
@@ -88,7 +94,7 @@
                 <button type="button"
                 onclick={updateStreak}
                 class="text-4xl leading-none mx-2 font-light">
-                {dream.streakCount}
+                {streak}
                 </button>
             </div>
         </div>
