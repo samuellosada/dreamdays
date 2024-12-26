@@ -2,10 +2,10 @@
 import { fly } from 'svelte/transition';
 import { dreams } from '$lib/stores';
 
-let description = '';
-let color = '#6366f1';
+let description = $state('');
+let color = $state('#6366f1');
 
-let currentStep = 0;
+let currentStep = $state(0);
 
 const today = new Date().toISOString().split('T')[0];
 
@@ -56,7 +56,7 @@ function isStepValid() {
                 <button 
                     type="button" 
                     class="p-4 w-16 h-16 rounded-full bg-emerald-500 hover:bg-emerald-600 transition-colors flex items-center justify-center"
-                    on:click={() => nextStep()}
+                    onclick={() => nextStep()}
                 >
                     <span class="material-symbols-outlined text-white text-3xl">
                         add
@@ -78,14 +78,14 @@ function isStepValid() {
                 <button
                     type="button"
                     class="font-medium hover:opacity-70 transition-opacity"
-                    on:click={() => previousStep()}
+                    onclick={() => previousStep()}
                 >
                     Cancel
                 </button>
                 <button
                     type="button"
                     class="font-medium hover:opacity-70 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
-                    on:click={nextStep}
+                    onclick={nextStep}
                     disabled={!isStepValid()}
                 >
                     Confirm
@@ -98,45 +98,45 @@ function isStepValid() {
             <div class="grid grid-cols-4 gap-4 mt-8">
                 <button 
                     class="w-16 h-16 rounded-full bg-blue-500 hover:opacity-80 transition-opacity"
-                    on:click={() => color = '#3B82F6'}
+                    onclick={() => color = '#3B82F6'}
                 ></button>
                 <button 
                     class="w-16 h-16 rounded-full bg-emerald-500 hover:opacity-80 transition-opacity"
-                    on:click={() => color = '#10B981'}
+                    onclick={() => color = '#10B981'}
                 ></button>
                 <button 
                     class="w-16 h-16 rounded-full bg-red-500 hover:opacity-80 transition-opacity"
-                    on:click={() => color = '#EF4444'}
+                    onclick={() => color = '#EF4444'}
                 ></button>
                 <button 
                     class="w-16 h-16 rounded-full bg-yellow-500 hover:opacity-80 transition-opacity"
-                    on:click={() => color = '#F59E0B'}
+                    onclick={() => color = '#F59E0B'}
                 ></button>
                 <button 
                     class="w-16 h-16 rounded-full bg-indigo-500 hover:opacity-80 transition-opacity"
-                    on:click={() => color = '#6366F1'}
+                    onclick={() => color = '#6366F1'}
                 ></button>
                 <button 
                     class="w-16 h-16 rounded-full bg-orange-500 hover:opacity-80 transition-opacity"
-                    on:click={() => color = '#F97316'}
+                    onclick={() => color = '#F97316'}
                 ></button>
                 <button 
                     class="w-16 h-16 rounded-full bg-pink-500 hover:opacity-80 transition-opacity"
-                    on:click={() => color = '#EC4899'}
+                    onclick={() => color = '#EC4899'}
                 ></button>
             </div>
             <div class="flex justify-between mt-8 text-xl">
                 <button
                     type="button"
                     class="font-medium hover:opacity-70 transition-opacity"
-                    on:click={() => previousStep()}
+                    onclick={() => previousStep()}
                 >
                     Back
                 </button>
                 <button
                     type="button"
                     class="font-medium hover:opacity-70 transition-opacity"
-                    on:click={nextStep}
+                    onclick={nextStep}
                 >
                     Create
                 </button>
