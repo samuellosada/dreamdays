@@ -16,7 +16,22 @@
 
     let isEditing = $state(false)
 
-    function updateDream() {
+    function handleUpdate() {
+        dreams.update(currentDreams => 
+            currentDreams.map(currentDream => {
+                if (currentDream.id === dream.id) {
+                    return {
+                        ...currentDream,
+                        description: currentDream.description
+                    };  
+                }
+                return currentDream;
+            })
+        );
+        cancelEditing();
+    }
+
+    function updateStreak() {
         if (!isMarkedToday) {
             dreams.update(currentDreams => 
                 currentDreams.map(currentDream => {
@@ -36,7 +51,6 @@
 
     function handleDelete() {
         cancelEditing;
-        console.log("deleting");
         dreams.update(currentDreams => currentDreams.filter(currentDream => currentDream.id !== dream.id));
     }
 
@@ -57,7 +71,7 @@
         class="text-slate-950 
         p-6 h-full xl:h-[80%] min-w-[85%] md:min-w-[60%] xl:min-w-[45%] mr-6 rounded-3xl shadow-lg transition-colors 
         snap-center bg-slate-50 text-slate-950'"
-        ondblclick={updateDream}
+        ondblclick={updateStreak}
     >   
         <!-- Text pushes all elements down if it is bigger than a certain amount. -->
         <h3 class="text-4xl min-h-[90%] xl:min-h-[88%] font-semibold leading-10 mb-4">{dream.description}</h3>
@@ -72,7 +86,7 @@
             </div>
             <div>
                 <button type="button"
-                onclick={updateDream}
+                onclick={updateStreak}
                 class="text-4xl leading-none mx-2 font-light">
                 {dream.streakCount}
                 </button>
@@ -83,8 +97,7 @@
     <div
         class="text-slate-950 
         p-6 h-full xl:h-[80%] min-w-[85%] md:min-w-[60%] xl:min-w-[45%] mr-6 rounded-3xl shadow-lg transition-colors 
-        snap-center bg-slate-50 text-slate-950'"
-        ondblclick={updateDream}
+        snap-center bg-slate-50 text-slate-950"
     >  
     <!-- FOR SOME REASON I CAN STILL SEE A BORDER WHEN THE TEXT AREA IS FOCUSED. -->
         <textarea
@@ -97,14 +110,21 @@
         </textarea>
         <!-- svelte-ignore a11y_consider_explicit_label -->
         <div class="flex justify-between items-center">
+            <button type="button" class=""
+            onclick={() => {handleDelete()}}>Delete</button>
+            </div>
+
             <button
             type="button"
             class="flex gap-2 font-medium hover:opacity-70 transition-opacity"
             onclick={cancelEditing}>Cancel</button>
 
-            <button type="button" class=""
-            onclick={() => {handleDelete()}}>Delete</button>
-        </div>
+            <button
+            type="button"
+            class="flex gap-2 font-medium hover:opacity-70 transition-opacity"
+            onclick={handleUpdate}>Confirm</button>
+
+
     </div>
 {/if}
 
