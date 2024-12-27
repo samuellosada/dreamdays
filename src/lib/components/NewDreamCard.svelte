@@ -55,7 +55,8 @@ function isStepValid() {
             <div class="flex justify-start">
                 <button 
                     type="button" 
-                    class="p-4 w-16 h-16 rounded-full bg-emerald-500 hover:bg-emerald-600 transition-colors flex items-center justify-center"
+                    style="background-color: #3B82F6"
+                    class="p-4 w-16 h-16 rounded-full hover:bg-emerald-600 transition-colors flex items-center justify-center"
                     onclick={() => nextStep()}
                 >
                     <span class="material-symbols-outlined text-white text-3xl">

@@ -2,14 +2,17 @@
     import { dreams } from '$lib/stores';
 	import ColorPicker from './ColorPicker.svelte';
 
-    // WHAT TIME IS THE STREAK BEING RESET AT? 
-    // Finish the Editing mode. 
-    // submit edited changes
-    // allow user to change the color of the dream.
+    //Features
+    //App introduction
+    //Summary progress card (weekly circle view)
+    //make api and db to save user data
+    //find a way to host it - is this dynamic or static? 
+    //Notifications
+    //Making this a web application -> proper
 
     //BUGS
+    //unsure of when streaks are being reset. Should be at 12 am.
     // When editing, if text is longer, it overflows the card.
-    //sometimes the placeholder for the textarea when editing defaults to and empty string.
 
     let { dream } = $props();
 
@@ -39,7 +42,6 @@
         );
         isEditing = false; 
         editingStep = 1;
-        //editedDescription = dream.description;
     }
 
     function updateStreak() {
