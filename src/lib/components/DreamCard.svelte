@@ -3,6 +3,7 @@
 	import ColorPicker from './ColorPicker.svelte';
 
     //Features
+    //Make Colours not the tailwind defaults
     //App introduction
     //Summary progress card (weekly circle view)
     //make api and db to save user data
@@ -14,6 +15,7 @@
     //unsure of when streaks are being reset. Should be at 12 am.
     // When editing, if text is longer, it overflows the card.
 
+    //dream is received as a property from Dreamlist.svelte
     let { dream } = $props();
 
     const today = new Date().toISOString().split('T')[0];
