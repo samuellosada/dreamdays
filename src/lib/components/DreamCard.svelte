@@ -37,7 +37,9 @@
             return currentDream;
             })
         );
-        cancelEditing();
+        isEditing = false; 
+        editingStep = 1;
+        //editedDescription = dream.description;
     }
 
     function updateStreak() {
@@ -53,7 +55,7 @@
                             lastUpdated: today,
                         };  
                     }
-                   
+                    console.log(currentDream);
                     return currentDream;
                 })
             );
@@ -70,7 +72,7 @@
     }
 
     function cancelEditing() {
-        editedDescription = '';
+        editedDescription = dream.description;
         isEditing = false;
         editingStep = 1;
     }
